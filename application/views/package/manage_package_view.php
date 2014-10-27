@@ -27,6 +27,8 @@
                                 <tr>
                                     <td><?php echo $package->package_name; ?></td>
                                     <td><?php echo $package->added_date; ?></td>
+                                    <td><?php echo $package->max_targets; ?></td>
+                                    <td><?php echo $package->max_objects; ?></td>
 
                                 </tr>
                                 <?php
