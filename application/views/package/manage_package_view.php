@@ -17,9 +17,9 @@
                         <thead>
                             <tr>
                                 <th>Package Name</th>
-                                <th>Added Date</th>
                                 <th>Max Targets</th>
                                 <th>Max Objects</th>
+                                <th>Added Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,9 +28,9 @@
                                 ?>
                                 <tr>
                                     <td><?php echo $package->package_name; ?></td>
-                                    <td><?php echo $package->added_date; ?></td>
                                     <td><?php echo $package->max_targets; ?></td>
                                     <td><?php echo $package->max_objects; ?></td>
+                                    <td><?php echo $package->added_date; ?></td>
 
                                 </tr>
                                 <?php
