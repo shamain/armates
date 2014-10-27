@@ -5,7 +5,8 @@ var site_url = js_site_url;
 //////////////////project//////////////////////////////////////////////////////////////
 //$(document).ready(function() {
 
-    $('#app_table').dataTable();
+$('#app_table').dataTable();
+$('#package_table').dataTable();
 //});
 
 
