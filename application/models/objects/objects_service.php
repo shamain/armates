@@ -33,6 +33,7 @@ class Objects_service extends CI_Model {
         $data = array('object_id' => $objects_model->get_object_id(),
             'target_id' => $objects_model->get_target_id(),
             'object_name' => $objects_model->get_object_name(),
+            'format' => $objects_model->get_format(),
             
         );
 

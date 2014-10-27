@@ -5,6 +5,7 @@ class Objects_model extends CI_Model {
     var $object_id;
     var $target_id;
     var $object_name;
+    var $format;
     var $del_ind;
     var $added_by;
     var $added_date;
@@ -25,7 +26,12 @@ class Objects_model extends CI_Model {
     public function get_object_name() {
         return $this->object_name;
     }
+    
+    public function get_format() {
+        return $this->format;
+    }
 
+    
     public function get_del_ind() {
         return $this->del_ind;
     }
@@ -49,7 +55,12 @@ class Objects_model extends CI_Model {
     public function set_object_name($object_name) {
         $this->object_name = $object_name;
     }
+    
+    public function set_format($format) {
+        $this->format = $format;
+    }
 
+    
     public function set_del_ind($del_ind) {
         $this->del_ind = $del_ind;
     }

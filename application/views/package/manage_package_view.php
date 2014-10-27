@@ -33,6 +33,9 @@
                                     <td><?php echo $package->max_objects; ?></td>
                                     <td><?php echo $package->added_date; ?></td>
 
+                                    <a href="<?php echo site_url(); ?>/package/package_controller/edit_package_view/<?php echo $package->package_id; ?>">
+                                                <span class="label label-info">Edit</span>
+                                            </a>
                                 </tr>
                                 <?php
                             }
