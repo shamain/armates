@@ -3,17 +3,10 @@ var site_url = js_site_url;
 
 
 //////////////////project//////////////////////////////////////////////////////////////
-$(document).ready(function() {
+//$(document).ready(function() {
 
-    $('#app_table').dataTable({
-        "bPaginate": true,
-        "bLengthChange": false,
-        "bFilter": false,
-        "bSort": true,
-        "bInfo": true,
-        "bAutoWidth": false
-    });
-});
+    $('#app_table').dataTable();
+//});
 
 
 

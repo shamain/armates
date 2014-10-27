@@ -357,6 +357,9 @@
         <script src="<?php echo base_url(); ?>application_resources/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
         <!-- iCheck -->
         <script src="<?php echo base_url(); ?>application_resources/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+        
+         <script src="<?php echo base_url(); ?>application_resources/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>application_resources/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
 
         <!-- AdminLTE App -->
         <script src="<?php echo base_url(); ?>application_resources/js/AdminLTE/app.js" type="text/javascript"></script>
