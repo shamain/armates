@@ -6,7 +6,7 @@
     </a>
     <ul class="treeview-menu">
         <li><a href="<?php echo site_url(); ?>/app/app_controller/manage_apps"><i class="fa fa-angle-double-right"></i> My Apps</a></li>
-        <li><a href="pages/UI/icons.html"><i class="fa fa-angle-double-right"></i> Icons</a></li>
+        <li><a href="<?php echo site_url(); ?>/package/package_controller/manage_packages"><i class="fa fa-angle-double-right"></i> Packages</a></li>
 
     </ul>
 </li>

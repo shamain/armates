@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2014 at 05:06 PM
+-- Generation Time: Oct 27, 2014 at 04:08 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -46,6 +46,22 @@ INSERT INTO `app` (`app_id`, `app_name`, `client_id`, `del_ind`, `added_by`, `ad
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `objects`
+--
+
+CREATE TABLE IF NOT EXISTS `objects` (
+  `object_id` int(11) NOT NULL AUTO_INCREMENT,
+  `target_id` int(11) NOT NULL,
+  `object_name` varchar(300) NOT NULL,
+  `del_ind` enum('1','0') NOT NULL DEFAULT '1',
+  `added_by` int(11) NOT NULL,
+  `added_date` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`object_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `package`
 --
 
@@ -58,6 +74,22 @@ CREATE TABLE IF NOT EXISTS `package` (
   `added_by` int(11) NOT NULL,
   `added_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`package_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `targets`
+--
+
+CREATE TABLE IF NOT EXISTS `targets` (
+  `target_id` int(11) NOT NULL AUTO_INCREMENT,
+  `app_id` int(11) NOT NULL,
+  `target_name` varchar(300) NOT NULL,
+  `del_ind` enum('1','0') NOT NULL DEFAULT '1',
+  `added_by` int(11) NOT NULL,
+  `added_date` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`target_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
