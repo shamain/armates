@@ -44,3 +44,6 @@
     </div>
 
 </section><!-- /.content -->
+<script type="text/javascript">
+    $('#app_parent_menu').addClass('active open');
+</script>
