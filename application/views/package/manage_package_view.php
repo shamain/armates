@@ -18,6 +18,8 @@
                             <tr>
                                 <th>Package Name</th>
                                 <th>Added Date</th>
+                                <th>Max Targets</th>
+                                <th>Max Objects</th>
                             </tr>
                         </thead>
                         <tbody>
