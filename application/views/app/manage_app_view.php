@@ -31,7 +31,7 @@
                                     <td><?php echo $app->app_name; ?></td>
                                     <td><?php echo $app->added_date; ?></td>
                                     <td>
-
+                                        <button class="btn btn-success btn-sm">Upload Objects</button>
                                     </td>
 
                                 </tr>
