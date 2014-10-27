@@ -17,8 +17,7 @@ class App_service extends CI_Model {
     }
 
     function add_new_app($app_model) {
-        $this->db->insert('app', $app_model);
-        return $this->db->insert_id();
+       return $this->db->insert('app', $app_model);
     }
 
     function delete_app($app_id) {

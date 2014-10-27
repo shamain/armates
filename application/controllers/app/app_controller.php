@@ -31,35 +31,25 @@ class App_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
 
-    function add_project_view() {
-        $perm = Access_controll_service::check_access('ADD_NEW_PROJECT');
-        if ($perm) {
+    function add_new_app() {
+       
+            $app_model = new App_model();
+            $app_service = new App_service();
+
+            $app_model->set_app_name($this->input->post('app_name', TRUE));
+            $app_model->set_client_id(1);
+            $app_model->set_added_by(1);
+            $app_model->set_added_date(date("Y-m-d H:i:s"));
+            $app_model->set_del_ind('1');
 
 
-            $data['heading'] = "Add New Project";
-
-            $project_stuff_temp_service = new Project_stuff_temp_service();
-            $project_service = new Project_service();
-            $project_stuff_temp_service->truncate_project_temp_stuff();
-
-            $result = $project_service->get_last_project_id();
-            $last_id = '';
-            if (!empty($result)) {
-                $last_id = $result->project_id + 1;
-            }
-
-            $data['last_id'] = $last_id;
-
-            $partials = array('content' => 'projects/add_project_view');
-            $this->template->load('template/main_template', $partials, $data);
-        } else {
-            
-        }
+            echo $app_service->add_new_app($app_model);
+      
     }
+    
 
     function add_new_project() {
-//        $perm = Access_controllerservice :: checkAccess('ADD_PRIVILEGES');
-//        if ($perm) {
+
 
         $project_model = new Project_model();
         $project_service = new Project_service();
