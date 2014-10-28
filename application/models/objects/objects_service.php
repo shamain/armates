@@ -6,12 +6,13 @@ class Objects_service extends CI_Model {
         parent::__construct();
         $this->load->model('objects/objects_model');
     }
+
     
-    public function get_all_objects($object_id) {
+     public function get_all_objects_for_app($app_id) {
 
         $this->db->select('objects.*');
         $this->db->from('objects');
-        $this->db->where('objects.object_id', $object_id);
+        $this->db->where('objects.app_id', $app_id);
         $query = $this->db->get();
         return $query->result();
     }

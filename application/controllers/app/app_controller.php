@@ -14,6 +14,9 @@ class App_controller extends CI_Controller {
 //        } else {
         $this->load->model('app/app_model');
         $this->load->model('app/app_service');
+        
+        $this->load->model('objects/objects_model');
+        $this->load->model('objects/objects_service');
 
 
 //        }
@@ -37,6 +40,7 @@ class App_controller extends CI_Controller {
             $app_service = new App_service();
 
             $app_model->set_app_name($this->input->post('app_name', TRUE));
+            $app_model->set_app_description($this->input->post('app_description', TRUE));
             $app_model->set_client_id(1);
             $app_model->set_added_by(1);
             $app_model->set_added_date(date("Y-m-d H:i:s"));
@@ -45,6 +49,18 @@ class App_controller extends CI_Controller {
 
             echo $app_service->add_new_app($app_model);
       
+    }
+    
+    function upload_object_view($app_id) {
+
+        $object_service = new Objects_service();
+
+
+        $data['heading'] = "My Objects";
+        $data['objects'] = $object_service->get_all_objects_for_app($app_id);
+
+        $partials = array('content' => 'app/upload_object_view');
+        $this->template->load('template/main_template', $partials, $data);
     }
     
 

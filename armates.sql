@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.1.6
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2014 at 05:53 PM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Generation Time: Oct 28, 2014 at 08:35 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.9
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `app` (
   `app_id` int(11) NOT NULL AUTO_INCREMENT,
   `app_name` varchar(200) NOT NULL,
+  `app_description` text,
   `client_id` int(11) NOT NULL,
   `del_ind` enum('1','0') NOT NULL DEFAULT '1',
   `added_by` int(11) NOT NULL,
@@ -40,10 +41,10 @@ CREATE TABLE IF NOT EXISTS `app` (
 -- Dumping data for table `app`
 --
 
-INSERT INTO `app` (`app_id`, `app_name`, `client_id`, `del_ind`, `added_by`, `added_date`) VALUES
-(1, '3D Sri Lanka Map', 1, '1', 1, '2014-10-25 18:30:00'),
-(2, 'fdfsd', 1, '1', 1, '2014-10-27 12:01:22'),
-(3, 'fdfsd', 1, '1', 1, '2014-10-27 12:02:18');
+INSERT INTO `app` (`app_id`, `app_name`, `app_description`, `client_id`, `del_ind`, `added_by`, `added_date`) VALUES
+(1, '3D Sri Lanka Map', NULL, 1, '1', 1, '2014-10-25 18:30:00'),
+(2, 'fdfsd', NULL, 1, '1', 1, '2014-10-27 12:01:22'),
+(3, 'fdfsd', NULL, 1, '1', 1, '2014-10-27 12:02:18');
 
 -- --------------------------------------------------------
 

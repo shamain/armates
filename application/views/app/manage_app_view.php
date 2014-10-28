@@ -1,6 +1,6 @@
 <section class="content-header">
     <h1>
-        My Apps
+        <?php  echo  $heading;?>
         <small>Preview of UI elements</small>
     </h1>
 </section>
@@ -19,6 +19,7 @@
                         <thead>
                             <tr>
                                 <th>App Name</th>
+                                <th>Description</th>
                                 <th>Added Date</th>
                                 <th>Actions</th>
                             </tr>
@@ -27,11 +28,14 @@
                             <?php
                             foreach ($apps as $app) {
                                 ?>
-                                <tr>
+                                <tr id="app<?php echo $app->app_id; ?>">
                                     <td><?php echo $app->app_name; ?></td>
+                                    <td><?php echo $app->app_description; ?></td>
                                     <td><?php echo $app->added_date; ?></td>
                                     <td>
-                                        <button class="btn btn-success btn-sm">Upload Objects</button>
+                                        <a href="<?php echo site_url(); ?>/app/app_controller/upload_object_view/<?php echo $app->app_id; ?>">
+                                            <span class="btn btn-success btn-sm">Upload Objects</span>
+                                        </a>
                                     </td>
 
                                 </tr>
@@ -69,6 +73,21 @@
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <input id="app_name" class="form-control" type="text" name="app_name">                              
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <textarea id="app_description" class="form-control" type="text" name="app_description"></textarea>                              
                             </div>
                         </div>
                     </div>
