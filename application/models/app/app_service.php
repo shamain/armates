@@ -78,6 +78,25 @@ class App_service extends CI_Model {
         return $query->row();
     }
     
+    function update_app($app_model) {
+
+        $data = array('app_id' => $app_model->get_app_id(),
+            'app_name' => $app_model->get_app_name(),
+            'app_description' => $app_model->get_app_description(),
+           
+            
+        );
+
+        $this->db->where('app_id', $app_model->get_app_id());
+        return $this->db->update('app', $data);
+    }
+    
+    function get_app_by_id($app_id) {
+
+        $query = $this->db->get_where('app', array('app_id' => $app_id,'del_ind'=>'1'));
+        return $query->row();
+    }
+    
     
 
 }

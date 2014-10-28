@@ -37,7 +37,10 @@
                                             <span class="btn btn-success btn-sm">Upload Objects</span>
                                         </a>
                                     </td>
-
+                                    
+                                    <a href="<?php echo site_url(); ?>/app/app_controller/edit_app_view/<?php echo $app->app_id; ?>">
+                                <span class="label label-info">Edit</span>
+                            </a>
                                 </tr>
                                 <?php
                             }

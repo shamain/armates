@@ -259,4 +259,42 @@ class App_controller extends CI_Controller {
         echo json_encode($result);
     }
 
+    
+    function edit_app_view($app_id) {
+//        $perm = Access_controll_service::check_access('EDIT_APP');
+//        if ($perm) {
+
+            $app_service = new APP_service();
+
+
+            $data['heading'] = "Edit App Deatils";
+            $data['app'] = $app_service->get_app_by_id($app_id);
+
+
+            $partials = array('content' => 'app/edit_app_view');
+            $this->template->load('template/main_template', $partials, $data);
+//        } else {
+//            
+//        }
+    }
+    
+    function edit_app() {
+
+//        $perm = Access_controll_service::check_access('EDIT_APP');
+//        if ($perm) {
+
+            $app_model = new App_model();
+            $app_service = new App_service();
+
+            
+            $app_model->set_app_name($this->input->post('app_name', TRUE));
+            $app_model->set_app_description($this->input->post('app_description', TRUE));
+            
+            
+
+            echo $app_service->update_app($app_model);
+//        } else {
+//            
+//        }
+    }
 }
