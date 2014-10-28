@@ -149,5 +149,5 @@
 </div>
 <!-- /.modal -->
 <script type="text/javascript">
-    $('#app_parent_menu').addClass('active open');
+    $('#client_parent_menu').addClass('active open');
 </script>
