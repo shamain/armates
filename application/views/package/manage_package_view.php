@@ -21,21 +21,24 @@
                                 <th>Max Targets</th>
                                 <th>Max Objects</th>
                                 <th>Added Date</th>
+                                <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach ($packages as $package) {
                                 ?>
-                                <tr id="pk<?php echo $app->package_id; ?>">
+                                <tr id="pk<?php echo $package->package_id; ?>">
                                     <td><?php echo $package->package_name; ?></td>
                                     <td><?php echo $package->max_targets; ?></td>
                                     <td><?php echo $package->max_objects; ?></td>
                                     <td><?php echo $package->added_date; ?></td>
-
+                                <td>         
                             <a href="<?php echo site_url(); ?>/package/package_controller/edit_package_view/<?php echo $package->package_id; ?>">
                                 <span class="label label-info">Edit</span>
+                            
                             </a>
+                    </td>
                             </tr>
                             <?php
                         }
