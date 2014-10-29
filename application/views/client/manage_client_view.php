@@ -22,7 +22,7 @@
                             <?php
                             foreach ($clients as $client) {
                                 ?>
-                                <tr>
+                               
                                      <tr  id="client_<?php echo $client->client_id; ?>">
 
 

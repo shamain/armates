@@ -6,15 +6,24 @@ class Client_service extends CI_Model {
         parent::__construct();
         $this->load->model('client/client_model');
     }
-    
-    public function get_all_clients($client_id) {
+     public function get_all_clients() {
 
-        $this->db->select('client.*');
+
+        $this->db->select('*');
         $this->db->from('client');
-        $this->db->where('client.client_id', $client_id);
+        $this->db->where('del_ind','1');
+        $this->db->order_by("client.client_id", "desc");
         $query = $this->db->get();
         return $query->result();
     }
+//    public function get_all_clients($client_id) {
+//
+//        $this->db->select('client.*');
+//        $this->db->from('client');
+//        $this->db->where('client.client_id', $client_id);
+//        $query = $this->db->get();
+//        return $query->result();
+//    }
 
       function add_new_client($client_model) {
        return $this->db->insert('client', $client_model);

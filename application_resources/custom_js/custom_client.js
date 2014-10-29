@@ -6,12 +6,6 @@ var site_url = js_site_url;
 $('#client_table').dataTable();
 
 
-//add client bday datepicker
-    $('#client_bday_dpicker').datepicker({
-        format: "yyyy-mm-dd",
-        autoclose: true,
-        todayHighlight: true
-    });
 
 
     //add client Form
@@ -29,7 +23,6 @@ $('#client_table').dataTable();
                 required: true,
                 email: true
             },
-            
             client_contact: {
                 required: true
             }
@@ -141,27 +134,4 @@ $('#edit_client_form').validate({
 
 
 
-////delete client
-//function delete_client(id) {
-//
-//    if (confirm('Are you sure want to deactivate this Client ?')) {
-//
-//        $.ajax({
-//            type: "POST",
-//            url: site_url + '/client/client_controller/delete_client',
-//            data: "id=" + id,
-//            success: function(msg) {
-//                //alert(msg);
-//                if (msg == 1) {
-//                    //document.getElementById(trid).style.display='none';
-//                    $('#client_' + id).hide();
-//                }
-//                else if (msg == 2) {
-//                    alert('Cannot be deactivate as it is already assigned to Tasks');
-//                }
-//            }
-//        });
-//    }
-//
-//}
 
