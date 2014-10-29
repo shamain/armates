@@ -4,6 +4,7 @@ class Objects_model extends CI_Model {
     
     var $object_id;
     var $target_id;
+    var $app_id;
     var $object_name;
     var $format;
     var $del_ind;
@@ -22,7 +23,12 @@ class Objects_model extends CI_Model {
     public function get_target_id() {
         return $this->target_id;
     }
+    
+    public function get_app_id() {
+        return $this->app_id;
+    }
 
+    
     public function get_object_name() {
         return $this->object_name;
     }
@@ -51,7 +57,12 @@ class Objects_model extends CI_Model {
     public function set_target_id($target_id) {
         $this->target_id = $target_id;
     }
+    
+    public function set_app_id($app_id) {
+        $this->app_id = $app_id;
+    }
 
+    
     public function set_object_name($object_name) {
         $this->object_name = $object_name;
     }
