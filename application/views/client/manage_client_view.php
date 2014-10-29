@@ -14,7 +14,7 @@
                                 <th>Email</th>
                                 <th>Contact No</th>
                                 <th>Image</th>
-                                
+                                <th>Options</th>
                                 
                             </tr>
                         </thead>
@@ -31,7 +31,12 @@
                                     <td><?php echo $client->client_email; ?></td>
                                     <td><?php echo $client->client_contact; ?></td>
                                     <td><?php echo $client->client_avatar; ?></td>
-
+<td>         
+                            <a href="<?php echo site_url(); ?>/client/client_controller/edit_client_view/<?php echo $client->client_id; ?>">
+                                <span class="label label-info">Edit</span>
+                            
+                            </a>
+                    </td>
                                 </tr>
                                 <?php
                             }
