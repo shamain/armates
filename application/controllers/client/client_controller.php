@@ -81,7 +81,7 @@ class Client_controller extends CI_Controller {
         $client_model->set_updated_by($this->session->userdata('CLIENT_ID'));
         $client_model->set_updated_date(date("Y-m-d H:i:s"));
 
-        $client_model->set_client_code($this->input->post('client_id', TRUE));
+        $client_model->set_client_id($this->input->post('client_id', TRUE));
 
         if ($this->input->post('client_id', TRUE) == $this->session->userdata('ClIENT_ID')) {
             $this->session->set_userdata('CLIENT_PROPIC', $this->input->post('client_avatar', TRUE));
@@ -92,5 +92,20 @@ class Client_controller extends CI_Controller {
 //        } else {
 //            $this->template->load('template/access_denied_page');
 //        }
+    }
+    
+    function upload_client_image() {
+
+        $uploaddir = './uploads/clients/';
+        $unique_tag = 'client';
+
+        $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
+        $file = $uploaddir . $filename; // this is the full path of the uploaded file
+
+        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $file)) {
+            echo $filename;
+        } else {
+            echo "error";
+        }
     }
 }

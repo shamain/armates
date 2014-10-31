@@ -95,7 +95,7 @@
                                             var btnUpload = $('#upload');
                                             var status = $('#status');
                                             new AjaxUpload(btnUpload, {
-                                                action: '<?PHP echo site_url(); ?>/client/client_controller/upload_image',
+                                                action: '<?PHP echo site_url(); ?>/client/client_controller/upload_client_image',
                                                 name: 'uploadfile',
                                                 onSubmit: function(file, ext) {
                                                     if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
@@ -116,7 +116,7 @@
                                                     if (response != "error") {
                                                         $('#files').html("");
 
-                                                        $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/client_avatar/' + response + '" width="100px" height="100px"  /><br />');
+                                                        $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/clients/' + response + '" width="100px" height="100px"  /><br />');
                                                         picFileName = response;
                                                         document.getElementById('image').value = file;
                                                         document.getElementById('client_avatar').value = response;
@@ -137,7 +137,7 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <div id="files" class="project-logo">
-                                                <img src="<?PHP echo base_url(); ?>uploads/client_avatar/<?php
+                                                <img src="<?PHP echo base_url(); ?>uploads/clients/<?php
                                                 if ($client->client_avatar != '') {
                                                     echo $client->client_avatar;
                                                 } else {
