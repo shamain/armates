@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.6
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2014 at 08:35 AM
--- Server version: 5.6.16
--- PHP Version: 5.5.9
+-- Generation Time: Oct 31, 2014 at 07:38 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -30,21 +30,55 @@ CREATE TABLE IF NOT EXISTS `app` (
   `app_id` int(11) NOT NULL AUTO_INCREMENT,
   `app_name` varchar(200) NOT NULL,
   `app_description` text,
+  `scene_file` varchar(400) NOT NULL,
   `client_id` int(11) NOT NULL,
   `del_ind` enum('1','0') NOT NULL DEFAULT '1',
   `added_by` int(11) NOT NULL,
   `added_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`app_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `app`
 --
 
-INSERT INTO `app` (`app_id`, `app_name`, `app_description`, `client_id`, `del_ind`, `added_by`, `added_date`) VALUES
-(1, '3D Sri Lanka Map', NULL, 1, '1', 1, '2014-10-25 18:30:00'),
-(2, 'fdfsd', NULL, 1, '1', 1, '2014-10-27 12:01:22'),
-(3, 'fdfsd', NULL, 1, '1', 1, '2014-10-27 12:02:18');
+INSERT INTO `app` (`app_id`, `app_name`, `app_description`, `scene_file`, `client_id`, `del_ind`, `added_by`, `added_date`) VALUES
+(1, '3D Sri Lanka Map', NULL, '', 1, '1', 1, '2014-10-25 18:30:00'),
+(2, 'fdfsd', NULL, '', 1, '1', 1, '2014-10-27 12:01:22'),
+(3, 'fdfsd', NULL, '', 1, '1', 1, '2014-10-27 12:02:18'),
+(4, 'fdfsd', '                                    sss', 'sc1414737074--330891231- DOC230514-23052014154419.pdf', 1, '1', 1, '2014-10-31 02:01:17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client`
+--
+
+CREATE TABLE IF NOT EXISTS `client` (
+  `client_id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_no` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `client_fname` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `client_lname` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `client_password` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `client_email` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `client_bday` date DEFAULT NULL,
+  `client_contact` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
+  `client_avatar` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `is_online` enum('Y','N') CHARACTER SET utf8 DEFAULT 'N',
+  `del_ind` enum('1','0','2') CHARACTER SET utf8 NOT NULL,
+  `added_by` int(11) DEFAULT NULL,
+  `added_date` timestamp NULL DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_date` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`client_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`client_id`, `client_no`, `client_fname`, `client_lname`, `client_password`, `client_email`, `client_bday`, `client_contact`, `client_avatar`, `is_online`, `del_ind`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES
+(1, '0', 'dad', 'dad', 'dad', 'das@dasd.sgd', NULL, NULL, 'default_cover_pic.png', NULL, '1', 1, '2014-10-31 01:28:13', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -55,6 +89,7 @@ INSERT INTO `app` (`app_id`, `app_name`, `app_description`, `client_id`, `del_in
 CREATE TABLE IF NOT EXISTS `objects` (
   `object_id` int(11) NOT NULL AUTO_INCREMENT,
   `target_id` int(11) NOT NULL,
+  `app_id` int(11) NOT NULL,
   `object_name` varchar(300) NOT NULL,
   `format` varchar(50) NOT NULL,
   `del_ind` enum('1','0') NOT NULL DEFAULT '1',
