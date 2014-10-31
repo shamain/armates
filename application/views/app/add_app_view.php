@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="app_description">App Name</label>
+                            <label for="app_description">App Description</label>
                             <textarea id="app_description" class="form-control" type="text" name="app_description"  style="width: 50%"> 
                             </textarea>
                         </div>
@@ -90,7 +90,9 @@
                             </div>
                         </div>
 
-                        <div id="add_app_msg"> </div>
+                        <div class="form-group">
+                            <div id="add_app_msg"> </div>
+                        </div>
 
 
                     </div>

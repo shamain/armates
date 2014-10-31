@@ -37,11 +37,11 @@ $('#add_app_form').validate({
         $.post(site_url + '/app/app_controller/add_new_app', $('#add_app_form').serialize(), function(msg)
         {
             if (msg == 1) {
-                $("#add_app_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" > App </a>has been added.</div>');
+                $("#add_app_msg").html('<div class="alert alert-success alert-dismissable"><i class="fa fa-check"></i><button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button><b>Success!</b>Success App has been successfully added .</div>');
                 add_app_form.reset();
                 window.location = site_url + '/app/app_controller/manage_apps'; //Redirect to the main company view after adding
             } else {
-                $("#add_app_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#"> App </a>has failed.</div>');
+                $("#add_app_msg").html('<div class="alert alert-danger alert-dismissable"><i class="fa fa-ban"></i><button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button><b>Error!</b>Success App has failed .</div>');
             }
         });
     }
