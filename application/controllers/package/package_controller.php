@@ -65,7 +65,7 @@ class Package_controller extends CI_Controller {
             $package_model = new Package_model();
             $package_service = new Package_service();
 
-            
+            $package_model->set_package_id($this->input->post('package_id', TRUE));
             $package_model->set_package_name($this->input->post('package_name', TRUE));
             $package_model->set_Max_targets($this->input->post('max_targets', TRUE));
             $package_model->set_Max_objects($this->input->post('max_objects', TRUE));
@@ -75,6 +75,21 @@ class Package_controller extends CI_Controller {
 //        } else {
 //            
 //        }
+    }
+    
+    function upload_package_scenes() {
+
+        $uploaddir = './uploads/package_scenes/';
+        $unique_tag = 'sc';
+
+        $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
+        $file = $uploaddir . $filename; // this is the full path of the uploaded file
+
+        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $file)) {
+            echo $filename;
+        } else {
+            echo "error";
+        }
     }
     
     
