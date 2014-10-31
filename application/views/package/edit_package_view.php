@@ -1,52 +1,38 @@
-<div class="page-title">	
-    <h3><?php echo $heading; ?></h3>		
-</div>
+<section class="page-title">	
+    <h1>
+        <?php echo $heading; ?>
+    </h1>		
+</section>
 
-<div class="row-fluid">
-    <div class="span12">
-        <div class="grid simple ">
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12 ">
             
-            <div class="grid-body ">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form id="edit_package_form" name="edit_package_form">
+            <div class="box box-primary ">
+                <div class="box-header">
+                    <h3 class="box-title">Edit Package Details</h3>
+                </div>
+                    <form role="form" id="edit_package_form" name="edit_package_form">
+                        
 
-                            <div class="form-group">
-                                <label class="form-label">Package Name</label>
-                                <span style="color: red">*</span>
-
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="package_name" class="form-control" type="text" name="package_name" value="<?php echo $package->package_name; ?>" style="width: 50%" >                              
+                            <div class="box-body">
+                                <div class="form-group">
+                                <label for="package_name">Package Name</label>
+                                <input id="package_name" class="form-control" type="text" name="package_name" style="width: 50%"
+                                        <?php echo $package->package_name ?>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Max Targets</label>
-                                <span style="color: red">*</span>
-
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="max_targets" class="form-control" type="text" name="max_targets" value="<?php echo $package->max_targets; ?>" style="width: 50%">                              
+                                <div class="form-group">
+                                    <label for="max_targets">Max Targets</label>
+                                    <textarea id="max_targets" class="form-control" type="text" name="max_targets" style="width: 50%"><?php echo $package->max_targets?></textarea>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Max Objects</label>
-                                <span style="color: red">*</span>
-
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="max_objects" class="form-control" type="text" name="max_objects" value="<?php echo $package->max_objects; ?>" style="width: 50%">                              
+                                
+                                <div class="form-group">
+                                    <label for="max_objects">Max Objects</label>
+                                    <textarea id="max_objects" class="form-control" type="text" name="max_objects" style="width: 50%"><?php echo $package->max_objects ?></textarea>
                                 </div>
+
+                                
                             </div>
-
-
-
-                            
-
-                            
-
 
                             <div id="edit_package_msg" class="form-row"> </div>
 
@@ -65,9 +51,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+</section>
+       
 <script type="text/javascript">
     $('#package_parent_menu').addClass('active open');
     
