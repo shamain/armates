@@ -374,6 +374,8 @@
 
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_app.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_package.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_client.js" type="text/javascript"></script>
+        
 
     </body>
 

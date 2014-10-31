@@ -25,8 +25,9 @@ class Client_service extends CI_Model {
 //        return $query->result();
 //    }
 
-      function add_new_client($client_model) {
-       return $this->db->insert('client', $client_model);
+     function add_new_client($client_model) {
+        $this->db->insert('client', $client_model);
+        return $this->db->insert_id();
     }
 
     function get_client_by_id($client_id) {
