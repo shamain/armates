@@ -50,6 +50,7 @@ class App_controller extends CI_Controller {
 
         $app_model->set_app_name($this->input->post('app_name', TRUE));
         $app_model->set_app_description($this->input->post('app_description', TRUE));
+        $app_model->set_scene_file($this->input->post('app_scene_file', TRUE));
         $app_model->set_client_id(1);
         $app_model->set_added_by(1);
         $app_model->set_added_date(date("Y-m-d H:i:s"));

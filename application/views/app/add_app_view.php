@@ -9,7 +9,7 @@
             <div class="grid-body ">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form id="edit_client_form" name="edit_app_form">
+                        <form id="add_app_form" name="add_app_form">
 
                             <div class="form-group">
                                 <label class="form-label">App Name</label>
