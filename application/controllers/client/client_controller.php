@@ -58,27 +58,39 @@ class Client_controller extends CI_Controller {
 //        }
     }
 
-    function edit_edit_client_view() {
 
-//        $perm = Access_controll_service::check_access('EDIT_PACKAGE');
+ function edit_client() {
+
+//        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE');
 //        if ($perm) {
 
         $client_model = new Client_model();
         $client_service = new Client_service();
 
-
         $client_model->set_client_no($this->input->post('client_no', TRUE));
         $client_model->set_client_fname($this->input->post('client_fname', TRUE));
         $client_model->set_client_lname($this->input->post('client_lname', TRUE));
-        $client_model->set_client_password($this->input->post('client_password', TRUE));
+        $client_model->set_client_password(md5($this->input->post('client_password', TRUE)));
         $client_model->set_client_email($this->input->post('client_email', TRUE));
-        $client_model->set_client_avatar('default_cover_pic.png');
+        
+        $client_model->set_client_bday($this->input->post('client_bday', TRUE));
+        $client_model->set_client_contact($this->input->post('client_contact', TRUE));
+        
+        $client_model->set_client_avatar($this->input->post('client_avatar', TRUE));
+        
+        $client_model->set_updated_by($this->session->userdata('CLIENT_ID'));
+        $client_model->set_updated_date(date("Y-m-d H:i:s"));
+
+        $client_model->set_client_code($this->input->post('client_id', TRUE));
+
+        if ($this->input->post('client_id', TRUE) == $this->session->userdata('ClIENT_ID')) {
+            $this->session->set_userdata('CLIENT_PROPIC', $this->input->post('client_avatar', TRUE));
+        }
 
 
         echo $client_service->update_client($client_model);
 //        } else {
-//            
+//            $this->template->load('template/access_denied_page');
 //        }
     }
-
 }
