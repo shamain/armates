@@ -68,7 +68,7 @@ class Client_controller extends CI_Controller {
         $client_service = new Client_service();
         
         $client_model->set_client_id($this->input->post('client_id', TRUE));
-        $client_model->set_client_no($this->input->post('client_no', TRUE));
+        
         $client_model->set_client_fname($this->input->post('client_fname', TRUE));
         $client_model->set_client_lname($this->input->post('client_lname', TRUE));
         $client_model->set_client_password(md5($this->input->post('client_password', TRUE)));

@@ -31,7 +31,7 @@ class Client_service extends CI_Model {
        function update_client($client_model) {
 
         $data = array('client_id' => $client_model->get_client_id(),
-            'client_no' => $client_model->get_client_no(),
+            
             'client_fname' => $client_model->get_client_fname(),
             'client_lname' => $client_model->get_client_lname(),
             'client_password' => $client_model->get_client_password(),
