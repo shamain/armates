@@ -104,4 +104,13 @@ class Client_controller extends CI_Controller {
             echo "error";
         }
     }
+    
+    function add_client_view() {
+
+        $data['heading'] = "Insert Client Details";
+
+
+        $partials = array('content' => 'client/add_client_view');
+        $this->template->load('template/main_template', $partials, $data);
+    }
 }

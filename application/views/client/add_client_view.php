@@ -35,9 +35,9 @@
                         </div>
                        
                      
-
-
-                 <div id="add_client_msg"> </div>
+                       <div class="form-group">
+                            <div id="add_client_msg"> </div>
+                        </div>
 
 
                     </div>
@@ -51,6 +51,7 @@
         </div>
     </div>
 </section>
+
 <script type="text/javascript">
     $('#client_parent_menu').addClass('active open');
 </script>

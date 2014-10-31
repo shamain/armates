@@ -3,9 +3,13 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Clients Details</h3>
+                    <h3 class="box-title">
+                        <a href="<?php echo site_url(); ?>/client/client_controller/add_client_view">
+                            <span class="btn btn-info">Add New Client</span>
+                        </a>
+                    </h3>
                 </div><!-- /.box-header -->
-                <button class="btn btn-info" data-toggle="modal" data-target="#add_client_modal">Add New client</button>
+                
                 <div class="box-body table-responsive">
                     <table id="client_table" class="table table-bordered table-hover">
                         <thead>
