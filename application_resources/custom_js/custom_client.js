@@ -87,7 +87,7 @@ $('#edit_client_form').validate({
         },
         client_email: {
             required: true
-            
+    
         },
         
         client_contact: {

@@ -66,7 +66,8 @@ class Client_controller extends CI_Controller {
 
         $client_model = new Client_model();
         $client_service = new Client_service();
-
+        
+        $client_model->set_client_id($this->input->post('client_id', TRUE));
         $client_model->set_client_no($this->input->post('client_no', TRUE));
         $client_model->set_client_fname($this->input->post('client_fname', TRUE));
         $client_model->set_client_lname($this->input->post('client_lname', TRUE));
@@ -77,15 +78,9 @@ class Client_controller extends CI_Controller {
         $client_model->set_client_contact($this->input->post('client_contact', TRUE));
         
         $client_model->set_client_avatar($this->input->post('client_avatar', TRUE));
-        
-        $client_model->set_updated_by($this->session->userdata('CLIENT_ID'));
-        $client_model->set_updated_date(date("Y-m-d H:i:s"));
+       
 
-        $client_model->set_client_id($this->input->post('client_id', TRUE));
-
-        if ($this->input->post('client_id', TRUE) == $this->session->userdata('ClIENT_ID')) {
-            $this->session->set_userdata('CLIENT_PROPIC', $this->input->post('client_avatar', TRUE));
-        }
+       
 
 
         echo $client_service->update_client($client_model);
@@ -93,6 +88,7 @@ class Client_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
+     
     
     function upload_client_image() {
 
