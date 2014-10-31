@@ -24,7 +24,8 @@ $('#client_table').dataTable();
                 email: true
             },
             client_contact: {
-                required: true
+                required: true,
+                 number:true
             }
 
 

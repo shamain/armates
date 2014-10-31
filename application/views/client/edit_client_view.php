@@ -63,7 +63,7 @@
                                 <div class="input-with-icon  right input-append primary date  no-padding" id="client_bday_edit_dpicker">                                       
                                     <i class=""></i>
 
-                                    <input class="form-control" type="text" input-append id="client_bday" name="client_bday" readonly="true"  value="<?php echo $client->client_bday; ?>">
+                                    <input class="form-control" type="text" input-append id="client_bday" name="client_bday" readonly="true"  value="<?php echo $client->client_bday; ?>"style="width: 50%">
                                     <span class="add-on">
                                         <span class="arrow"></span>
                                         <i class="fa fa-th"></i>

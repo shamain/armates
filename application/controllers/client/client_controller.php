@@ -48,7 +48,7 @@ class Client_controller extends CI_Controller {
 
 
         $data['heading'] = "Edit Client Deatils";
-        $data['clients'] = $client_service->get_client_by_id($client_id);
+        $data['client'] = $client_service->get_client_by_id($client_id);
 
 
         $partials = array('content' => 'client/edit_client_view');
