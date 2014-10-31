@@ -15,6 +15,15 @@ class App_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+    
+    public function get_all_apps() {
+
+        $this->db->select('app.*');
+        $this->db->from('app');
+        $this->db->where('app.del_ind', '1');
+        $query = $this->db->get();
+        return $query->result();
+    }
 
     function add_new_app($app_model) {
        return $this->db->insert('app', $app_model);

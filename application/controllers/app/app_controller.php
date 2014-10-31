@@ -303,6 +303,22 @@ class App_controller extends CI_Controller {
 //            
 //        }
     }
+    
+    function upload_app_scenes() {
+
+        $uploaddir = './uploads/app_scenes/';
+        $unique_tag = 'sc';
+
+        $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
+        $file = $uploaddir . $filename; // this is the full path of the uploaded file
+
+        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $file)) {
+            echo $filename;
+        } else {
+            echo "error";
+        }
+    }
+    
 
     function upload_object_image() {
 
@@ -328,7 +344,7 @@ class App_controller extends CI_Controller {
 
         $app_service = new App_service();
 
-        $result = $app_service->get_all_apps_for_client(1);
+        $result = $app_service->get_all_apps(1);
 
         echo json_encode($result);
     }
