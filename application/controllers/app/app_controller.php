@@ -14,7 +14,7 @@ class App_controller extends CI_Controller {
 //        } else {
         $this->load->model('app/app_model');
         $this->load->model('app/app_service');
-        
+
         $this->load->model('objects/objects_model');
         $this->load->model('objects/objects_service');
 
@@ -34,23 +34,31 @@ class App_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
 
-    function add_new_app() {
-       
-            $app_model = new App_model();
-            $app_service = new App_service();
+    function add_app_view() {
 
-            $app_model->set_app_name($this->input->post('app_name', TRUE));
-            $app_model->set_app_description($this->input->post('app_description', TRUE));
-            $app_model->set_client_id(1);
-            $app_model->set_added_by(1);
-            $app_model->set_added_date(date("Y-m-d H:i:s"));
-            $app_model->set_del_ind('1');
+        $data['heading'] = "Insert App Details";
 
 
-            echo $app_service->add_new_app($app_model);
-      
+        $partials = array('content' => 'app/add_app_view');
+        $this->template->load('template/main_template', $partials, $data);
     }
-    
+
+    function add_new_app() {
+
+        $app_model = new App_model();
+        $app_service = new App_service();
+
+        $app_model->set_app_name($this->input->post('app_name', TRUE));
+        $app_model->set_app_description($this->input->post('app_description', TRUE));
+        $app_model->set_client_id(1);
+        $app_model->set_added_by(1);
+        $app_model->set_added_date(date("Y-m-d H:i:s"));
+        $app_model->set_del_ind('1');
+
+
+        echo $app_service->add_new_app($app_model);
+    }
+
     function upload_object_view($app_id) {
 
         $object_service = new Objects_service();
@@ -62,7 +70,6 @@ class App_controller extends CI_Controller {
         $partials = array('content' => 'app/upload_object_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-    
 
     function add_new_project() {
 
@@ -259,49 +266,48 @@ class App_controller extends CI_Controller {
         echo json_encode($result);
     }
 
-    
     function edit_app_view($app_id) {
 //        $perm = Access_controll_service::check_access('EDIT_APP');
 //        if ($perm) {
 
-            $app_service = new APP_service();
+        $app_service = new APP_service();
 
 
-            $data['heading'] = "Edit App Deatils";
-            $data['app'] = $app_service->get_app_by_id($app_id);
+        $data['heading'] = "Edit App Deatils";
+        $data['app'] = $app_service->get_app_by_id($app_id);
 
 
-            $partials = array('content' => 'app/edit_app_view');
-            $this->template->load('template/main_template', $partials, $data);
+        $partials = array('content' => 'app/edit_app_view');
+        $this->template->load('template/main_template', $partials, $data);
 //        } else {
 //            
 //        }
     }
-    
+
     function edit_app() {
 
 //        $perm = Access_controll_service::check_access('EDIT_APP');
 //        if ($perm) {
 
-            $app_model = new App_model();
-            $app_service = new App_service();
+        $app_model = new App_model();
+        $app_service = new App_service();
 
-            
-            $app_model->set_app_name($this->input->post('app_name', TRUE));
-            $app_model->set_app_description($this->input->post('app_description', TRUE));
-            
-            
 
-            echo $app_service->update_app($app_model);
+        $app_model->set_app_name($this->input->post('app_name', TRUE));
+        $app_model->set_app_description($this->input->post('app_description', TRUE));
+
+
+
+        echo $app_service->update_app($app_model);
 //        } else {
 //            
 //        }
     }
-    
+
     function upload_object_image() {
 
-        $uploaddir = './upload/objects/';
-        $unique_tag = 'object_image';
+        $uploaddir = './uploads/objects/';
+        $unique_tag = 'object';
 
         $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
         $file = $uploaddir . $filename; // this is the full path of the uploaded file
@@ -312,4 +318,19 @@ class App_controller extends CI_Controller {
             echo "error";
         }
     }
+
+    /*
+     * Give all active Apps to mobile client
+     */
+
+    public function get_all_apps() {
+
+
+        $app_service = new App_service();
+
+        $result = $app_service->get_all_apps_for_client(1);
+
+        echo json_encode($result);
+    }
+
 }

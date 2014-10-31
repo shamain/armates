@@ -1,6 +1,6 @@
 <section class="content-header">
     <h1>
-        <?php  echo  $heading;?>
+        <?php echo $heading; ?>
         <small>Preview of UI elements</small>
     </h1>
 </section>
@@ -12,7 +12,9 @@
                 <div class="box-header">
                     <h3 class="box-title">Hover Data Table</h3>
                 </div><!-- /.box-header -->
-                <button class="btn btn-info" data-toggle="modal" data-target="#add_app_modal">Add New App</button>
+                <a href="<?php echo site_url(); ?>/app/app_controller/add_app_view">
+                    <span class="btn btn-info">Add New App</span>
+                </a>
                 <div class="box-body table-responsive">
 
                     <table id="app_table" class="table table-bordered table-hover">
@@ -39,9 +41,9 @@
                                         </a>
                                     </td>
                                     <td>
-                                    <a href="<?php echo site_url(); ?>/app/app_controller/edit_app_view/<?php echo $app->app_id; ?>">
-                                <span class="label label-info">Edit</span>
-                            </a>
+                                        <a href="<?php echo site_url(); ?>/app/app_controller/edit_app_view/<?php echo $app->app_id; ?>">
+                                            <span class="label label-info">Edit</span>
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php
