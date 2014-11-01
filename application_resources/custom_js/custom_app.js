@@ -3,6 +3,7 @@ var site_url = js_site_url;
 //////////////////app//////////////////////////////////////////////////////////////
 
 $('#app_table').dataTable();
+$('#my_object_table').dataTable();
 
 $('#add_app_form').validate({
     focusInvalid: false,

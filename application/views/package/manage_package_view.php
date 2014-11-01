@@ -1,18 +1,21 @@
-<!--<section class="content-header">
+<section class="content-header">
     <h1>
-        My Apps
-        <small>Preview of UI elements</small>
+        <?php echo $heading; ?>
     </h1>
-</section>-->
+</section>
+
 
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Packages Data Table</h3>
+                    <h3 class="box-title">
+                        <button class="btn btn-info" data-toggle="modal" data-target="#add_package_modal">Add New Package</button>
+                        
+                    </h3>
                 </div><!-- /.box-header -->
-                <button class="btn btn-info" data-toggle="modal" data-target="#add_package_modal">Add New Package</button>
+
                 <div class="box-body table-responsive">
                     <table id="package_table" class="table table-bordered table-hover">
                         <thead>
@@ -35,7 +38,7 @@
                                     <td><?php echo $package->added_date; ?></td>
                                 <td>         
                             <a href="<?php echo site_url(); ?>/package/package_controller/edit_package_view/<?php echo $package->package_id; ?>">
-                                <span class="label label-info">Edit</span>
+                                <span class="btn btn-info btn-sm">Edit</span>
                             
                             </a>
                     </td>
@@ -192,5 +195,5 @@
 </div>
 <!-- /.modal -->
 <script type="text/javascript">
-    $('#package_parent_menu').addClass('active open');
+    $('#app_parent_menu').addClass('active open');
 </script>

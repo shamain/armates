@@ -34,7 +34,15 @@
                                 ?>
                                 <tr id="app<?php echo $app->app_id; ?>">
                                     <td><?php echo $app->app_name; ?></td>
-                                    <td><?php echo $app->app_description; ?></td>
+                                    <td>
+                                        <?php
+                                        if (!empty($app->app_description)) {
+                                            echo $app->app_description;
+                                        } else {
+                                            echo '<center>-</center>';
+                                        }
+                                        ?>
+                                    </td>
                                     <td><?php echo $app->added_date; ?></td>
                                     <td>
                                         <a href="<?php echo site_url(); ?>/app/app_controller/upload_object_view/<?php echo $app->app_id; ?>">

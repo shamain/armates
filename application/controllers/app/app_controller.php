@@ -65,7 +65,7 @@ class App_controller extends CI_Controller {
         $object_service = new Objects_service();
 
 
-        $data['heading'] = "My Objects";
+        $data['heading'] = "App Objects";
         $data['objects'] = $object_service->get_all_objects_for_app($app_id);
 
         $partials = array('content' => 'app/upload_object_view');

@@ -54,7 +54,7 @@
 </section>
        
 <script type="text/javascript">
-    $('#package_parent_menu').addClass('active open');
+    $('#app_parent_menu').addClass('active open');
     
 </script>
 
