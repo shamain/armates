@@ -5,21 +5,28 @@ class Client_service extends CI_Model {
      function __construct() {
         parent::__construct();
         $this->load->model('client/client_model');
-    }
-     public function get_all_clients() {
+}
+//     public function get_all_clients() {
+//
+//
+//        $this->db->select('*');
+//        $this->db->from('client');
+//        $this->db->where('del_ind','1');
+//        $this->db->order_by("client.client_id", "desc");
+//        $query = $this->db->get();
+//        return $query->result();
+//    }
+ public function get_all_clients() {
 
-
-        $this->db->select('*');
+        $this->db->select('client.*');
         $this->db->from('client');
-        $this->db->where('del_ind','1');
-        $this->db->order_by("client.client_id", "desc");
+        $this->db->where('client.del_ind', '1');
         $query = $this->db->get();
         return $query->result();
     }
-
      function add_new_client($client_model) {
         $this->db->insert('client', $client_model);
-        return $this->db->insert_id();
+        
     }
 
     function get_client_by_id($client_id) {
@@ -45,6 +52,10 @@ class Client_service extends CI_Model {
         $this->db->where('client_id', $client_model->get_client_id());
         return $this->db->update('client', $data);
     }
-    
+        function delete_client($client_id) {
+        $data = array('del_ind' => '0');
+        $this->db->where('client_id', $client_id);
+        return $this->db->update('client', $data);
+    }
 }
 
