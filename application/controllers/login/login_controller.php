@@ -29,8 +29,8 @@ class Login_controller extends CI_Controller {
         //echo 1;die();
         // redirect(base_url() . 'index.php/IMS/dashboard_controller/');
         // } else {
-//        $this->load->model('employee/employee_model');
-//        $this->load->model('employee/employee_service');
+        $this->load->model('client/client_model');
+        $this->load->model('client/client_service');
 //        $this->load->model('IMS/EmployeeDepartments/Employeedepartmentsmodel');
 //        $this->load->model('IMS/EmployeeDepartments/Employeedepartmentservice');
 //
@@ -42,13 +42,13 @@ class Login_controller extends CI_Controller {
     }
 
     function index() {
-//        if ($this->session->userdata('EMPLOYEE_LOGGED_IN')) {
+        if ($this->session->userdata('CLIENT_LOGGED_IN')) {
 //            redirect(base_url() . 'index.php/dashboard/dashboard_controller/');
             $this->template->load('template/main_template');
-//        } else {
-//
-//            $this->template->load('template/login');
-//        }
+        } else {
+
+            $this->template->load('template/login');
+        }
     }
 
     //Login details checking function 
@@ -56,8 +56,8 @@ class Login_controller extends CI_Controller {
 
         $setting_login_type_id = '1'; //setting id 1 = User Login Options , in main_settings table
 
-        $employee_model = new Employee_model();
-        $employee_service = new Employee_service();
+        $client_model = new Client_model();
+        $client_service = new Client_service();
 
         $email = $this->input->post('login_username', TRUE);
 
@@ -76,10 +76,10 @@ class Login_controller extends CI_Controller {
         // 1 = Username & Password
         if ($login_option == 1) {
             //  $logged_user_result = '';
-            $employee_model->set_employee_email($email);
-            $employee_model->set_employee_password(md5($this->input->post('login_password', TRUE))); // password md 5 change 
+            $client_model->set_client_email($email);
+            $client_model->set_client_password(md5($this->input->post('login_password', TRUE))); // password md 5 change 
 
-            if (count($employee_service->authenticate_user_with_password($employee_model)) == 0) {
+            if (count($client_service->authenticate_user_with_password($client_model)) == 0) {
                 $logged_user_result = false;
             } else {
                 $logged_user_result = true;
@@ -94,7 +94,7 @@ class Login_controller extends CI_Controller {
             //die();
 
             $logged_user_result = true;
-            $employee_model->set_employee_email($email);
+            $client_model->set_client_email($email);
             //$employeemodel->setPassword(md5($this->input->post('login_password', TRUE))); // password md 5 change 
         }
 
@@ -102,18 +102,18 @@ class Login_controller extends CI_Controller {
         if ($login_option == 3) {
 
 
-            $employee_model->set_employee_email($email);
-            $employee_model->set_employee_password($this->input->post('login_password', TRUE)); // password md 5 change
+            $client_model->set_client_email($email);
+            $client_model->set_($this->input->post('login_password', TRUE)); // password md 5 change
 
-            $mailServer = $employee_service->get_server_by_email($employee_model);
+            $mailServer = $client_service->get_server_by_email($client_model);
 
             //$logged_user_result = $this->authenticateUserEmail($employeemodel,$this->config->item('MAILBOX'));// chamge
             //echo $logged_user_details->server;die;
 
             if ($mailServer == 1) {
-                $logged_user_result = $this->authenticate_user_email($employee_model, $this->config->item('MAILBOX'));
+                $logged_user_result = $this->authenticate_user_email($client_model, $this->config->item('MAILBOX'));
             } else if ($mailServer == 2) {
-                $logged_user_result = $this->authenticate_user_email($employee_model, $this->config->item('MAILBOX2'));
+                $logged_user_result = $this->authenticate_user_email($client_model, $this->config->item('MAILBOX2'));
             } else {
                 $logged_user_result = FALSE;
             }
@@ -125,7 +125,7 @@ class Login_controller extends CI_Controller {
         /* Remove Imap authenticate error login with some machine */
         // $logged_user_result =  true;
         if ($logged_user_result) {// chamge
-            $logged_user_details = $employee_service->authenticate_user($employee_model);
+            $logged_user_details = $client_service->authenticate_user($client_model);
 //print_r($logged_user_details);
 
 
@@ -138,9 +138,9 @@ class Login_controller extends CI_Controller {
                 $emp_login_status_model = new Employee_model();
                 $emp_login_status_model->set_is_online('Y');
                 $emp_login_status_model->set_employee_code($logged_user_details->employee_code);
-                $employee_service->update_online_status($emp_login_status_model);
+                $client_service->update_online_status($emp_login_status_model);
                 //Setting sessions		
-                $this->session->set_userdata('EMPLOYEE_CODE', $logged_user_details->employee_code);
+                $this->session->set_userdata('CLIENT_CODE', $logged_user_details->client_id);
 //                $this->session->set_userdata('EMPLOYEE_WELCOME', $logged_user_details->preferred_welcome_sys);
                 $this->session->set_userdata('EMPLOYEE_FIRST', '1'); //check first time log in and redirect to welcome page
                 $this->session->set_userdata('EMPLOYEE_NAME', $logged_user_details->employee_fname . ' ' . $logged_user_details->employee_lname);
@@ -182,13 +182,13 @@ class Login_controller extends CI_Controller {
 
     function logout() {
 
-        $emp_login_status_model = new Employee_model();
-        $employee_service = new Employee_service();
+        $client_model = new Client_model();
+        $client_service = new Client_service();
 
-        $emp_login_status_model->set_is_online('N');
-        $emp_login_status_model->set_employee_code($this->session->userdata('EMPLOYEE_CODE'));
+        $client_model->set_is_online('N');
+        $client_model->set_client_id($this->session->userdata('EMPLOYEE_CODE'));
 
-        $employee_service->update_online_status($emp_login_status_model);
+//        $client_service->update_online_status($client_model);
 
         $this->session->sess_destroy();
         redirect(site_url() . '/login/login_controller');
