@@ -77,20 +77,7 @@ class Package_controller extends CI_Controller {
 //        }
     }
     
-    function upload_package_scenes() {
-
-        $uploaddir = './uploads/package_scenes/';
-        $unique_tag = 'sc';
-
-        $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
-        $file = $uploaddir . $filename; // this is the full path of the uploaded file
-
-        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $file)) {
-            echo $filename;
-        } else {
-            echo "error";
-        }
-    }
+    
     
     
     
