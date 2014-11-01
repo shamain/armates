@@ -56,7 +56,8 @@ $('#client_table').dataTable();
                 if (msg == 1) {
                     $("#add_client_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >client </a>has been added.</div>');
                     add_client_form.reset();
-                    location.reload();
+                    window.location = site_url + '/client/client_controller/manage_clients'; 
+
                 } else {
                     $("#add_client_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">client </a>has failed.</div>');
                 }
