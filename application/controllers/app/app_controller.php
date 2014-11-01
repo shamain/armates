@@ -267,23 +267,23 @@ class App_controller extends CI_Controller {
         echo json_encode($result);
     }
 
-    function edit_app_view($app_id) {
-//        $perm = Access_controll_service::check_access('EDIT_APP');
-//        if ($perm) {
-
-        $app_service = new APP_service();
-
-
-        $data['heading'] = "Edit App Deatils";
-        $data['app'] = $app_service->get_app_by_id($app_id);
-
-
-        $partials = array('content' => 'app/edit_app_view');
-        $this->template->load('template/main_template', $partials, $data);
-//        } else {
-//            
-//        }
-    }
+//    function edit_app_view($app_id) {
+////        $perm = Access_controll_service::check_access('EDIT_APP');
+////        if ($perm) {
+//
+//        $app_service = new App_service();
+//
+//
+//        $data['heading'] = "Edit App Deatils";
+//        $data['app'] = $app_service->get_app_by_id($app_id);
+//
+//
+//        $partials = array('content' => 'app/edit_app_view');
+//        $this->template->load('template/main_template', $partials, $data);
+////        } else {
+////            
+////        }
+//    }
 
     function edit_app() {
 
@@ -293,10 +293,10 @@ class App_controller extends CI_Controller {
         $app_model = new App_model();
         $app_service = new App_service();
 
-
+        $app_model->set_app_id($this->input->post('app_id', TRUE));
         $app_model->set_app_name($this->input->post('app_name', TRUE));
         $app_model->set_app_description($this->input->post('app_description', TRUE));
-
+        $app_model->set_scene_file($this->input->post('app_scene',TRUE));
 
 
         echo $app_service->update_app($app_model);
@@ -348,6 +348,32 @@ class App_controller extends CI_Controller {
         $result = $app_service->get_all_apps(1);
 
         echo json_encode($result);
+    }
+    
+    function edit_app_view($app_id) {
+        
+        $app_service = new App_service();
+
+        $data['heading'] = "Edit App Details";
+        $data['app'] = $app_service->get_app_by_id($app_id);
+
+        $partials = array('content' => 'app/edit_app_view');
+        $this->template->load('template/main_template', $partials, $data);
+    }
+    
+    function update_app_scenes() {
+        $app_service = new App_service();
+        $app_model = new App_model();
+
+        $app_model->set_scene_file($this->input->post('app_scene', TRUE));
+        $app_model->set_app_id($this->input->post('app_id', TRUE));
+
+        $result = $app_service->update_app_scenes($app_model);
+        
+        
+        $this->session->set_userdata('APP_SCENE', $this->input->post('app_scene', TRUE));
+        
+        echo $result;
     }
 
 }
