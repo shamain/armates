@@ -11,6 +11,10 @@ $('#add_app_form').validate({
     rules: {
         app_name: {
             required: true
+        },
+        
+        app_description:{
+            required:true
         }
 
 

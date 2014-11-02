@@ -77,6 +77,15 @@ class Package_controller extends CI_Controller {
 //        }
     }
     
+    function add_package_view() {
+
+        $data['heading'] = "Insert Package Details";
+
+
+        $partials = array('content' => 'app/add_package_view');
+        $this->template->load('template/main_template', $partials, $data);
+    }
+    
     
     
     
