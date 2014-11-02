@@ -5,8 +5,10 @@ class Orders_model extends CI_Model {
     var $order_id;
     var $address;
     var $sofa_model;
+    var $item_count;
     var $comments;
     var $deliver_date;
+    var $del_ind;
     
      function __construct() {
         parent::__construct();
@@ -24,7 +26,7 @@ class Orders_model extends CI_Model {
         return $this->address;
     }
 
-    public function set_address($addrsss) {
+    public function set_address($address) {
         $this->address = $address;
     }
 
@@ -34,6 +36,14 @@ class Orders_model extends CI_Model {
 
     public function set_sofa_model($sofa_model) {
         $this->sofa_model = $sofa_model;
+    }
+
+    public function get_item_count() {
+        return $this->item_count;
+    }
+
+    public function set_item_count($item_count) {
+        $this->item_count = $item_count;
     }
 
     public function get_comments() {
@@ -52,6 +62,14 @@ class Orders_model extends CI_Model {
         $this->deliver_date = $deliver_date;
     }
 
-   
+    public function get_del_ind() {
+        return $this->del_ind;
+    }
 
+    public function set_del_ind($del_ind) {
+        $this->del_ind = $del_ind;
+    }
+
+
+    
 }

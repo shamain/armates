@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2014 at 01:00 AM
+-- Generation Time: Nov 02, 2014 at 02:09 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -59,12 +59,10 @@ INSERT INTO `app` (`app_id`, `app_name`, `app_description`, `scene_file`, `clien
 
 CREATE TABLE IF NOT EXISTS `client` (
   `client_id` int(11) NOT NULL AUTO_INCREMENT,
-  `client_no` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `client_fname` varchar(100) CHARACTER SET utf8 NOT NULL,
   `client_lname` varchar(100) CHARACTER SET utf8 NOT NULL,
   `client_password` varchar(100) CHARACTER SET utf8 NOT NULL,
   `client_email` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `client_bday` date DEFAULT NULL,
   `client_contact` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
   `client_avatar` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `is_online` enum('Y','N') CHARACTER SET utf8 DEFAULT 'N',
@@ -80,8 +78,8 @@ CREATE TABLE IF NOT EXISTS `client` (
 -- Dumping data for table `client`
 --
 
-INSERT INTO `client` (`client_id`, `client_no`, `client_fname`, `client_lname`, `client_password`, `client_email`, `client_bday`, `client_contact`, `client_avatar`, `is_online`, `del_ind`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES
-(1, '0', 'dad', 'dad', 'dad', 'das@dasd.sgd', NULL, NULL, 'default_cover_pic.png', NULL, '1', 1, '2014-10-31 01:28:13', NULL, NULL);
+INSERT INTO `client` (`client_id`, `client_fname`, `client_lname`, `client_password`, `client_email`, `client_contact`, `client_avatar`, `is_online`, `del_ind`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES
+(1, 'Shamain', 'Peiris', 'c4961b067d274050e43e26beb9d7d19c', 'shamaingdd@yahoo.com', NULL, 'default_cover_pic.png', 'Y', '1', 1, '2014-10-31 01:28:13', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -111,10 +109,23 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `address` varchar(400) NOT NULL,
   `sofa_model` varchar(200) NOT NULL,
+  `item_count` int(11) NOT NULL,
   `comments` text NOT NULL,
   `deliver_date` datetime NOT NULL,
+  `del_ind` enum('1','0') NOT NULL DEFAULT '1',
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `address`, `sofa_model`, `item_count`, `comments`, `deliver_date`, `del_ind`) VALUES
+(1, 'dasdasd', 'fasfsfasf', 0, 'asfsf', '0000-00-00 00:00:00', '1'),
+(2, 'dasdasd', 'fasfsfasf', 0, 'asfsf', '1970-01-01 01:00:00', '1'),
+(3, 'dasdasd', 'fasfsfasf', 0, 'asfsf', '2014-07-10 00:00:00', '1'),
+(4, 'dasdasd', 'fasfsfasf', 10, 'asfsf', '2014-07-10 00:00:00', '1'),
+(5, 'dasdasd', 'fasfsfasf', 10, 'asfsf', '2014-07-10 00:00:00', '1');
 
 -- --------------------------------------------------------
 
