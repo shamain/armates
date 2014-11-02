@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2014 at 07:38 AM
+-- Generation Time: Nov 02, 2014 at 01:00 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `app` (
   `added_by` int(11) NOT NULL,
   `added_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`app_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `app`
@@ -46,7 +46,10 @@ INSERT INTO `app` (`app_id`, `app_name`, `app_description`, `scene_file`, `clien
 (1, '3D Sri Lanka Map', NULL, '', 1, '1', 1, '2014-10-25 18:30:00'),
 (2, 'fdfsd', NULL, '', 1, '1', 1, '2014-10-27 12:01:22'),
 (3, 'fdfsd', NULL, '', 1, '1', 1, '2014-10-27 12:02:18'),
-(4, 'fdfsd', '                                    sss', 'sc1414737074--330891231- DOC230514-23052014154419.pdf', 1, '1', 1, '2014-10-31 02:01:17');
+(4, 'fdfsd', '                                    sss', 'sc1414737074--330891231- DOC230514-23052014154419.pdf', 1, '1', 1, '2014-10-31 02:01:17'),
+(5, 'furniture ', ' furniture  app', '', 1, '1', 1, '2014-10-31 02:53:31'),
+(6, 'dsd', ' \r\n                            ds', '', 1, '1', 1, '2014-10-31 02:58:24'),
+(7, 's', ' SS\r\n                            ', '', 1, '1', 1, '2014-10-31 02:59:08');
 
 -- --------------------------------------------------------
 
@@ -96,6 +99,21 @@ CREATE TABLE IF NOT EXISTS `objects` (
   `added_by` int(11) NOT NULL,
   `added_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`object_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `address` varchar(400) NOT NULL,
+  `sofa_model` varchar(200) NOT NULL,
+  `comments` text NOT NULL,
+  `deliver_date` datetime NOT NULL,
+  PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
