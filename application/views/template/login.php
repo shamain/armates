@@ -38,7 +38,7 @@
                         <input type="text" id="txtusername" name="txtusername" class="form-control" placeholder="User ID"/>
                     </div>
                     <div class="form-group">
-                        <input type="txtpassword" name="txtpassword" class="form-control" placeholder="Password"/>
+                        <input type="password" id="txtpassword" name="txtpassword" class="form-control" placeholder="Password"/>
                     </div>          
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"/> Remember me

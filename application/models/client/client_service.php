@@ -57,5 +57,37 @@ class Client_service extends CI_Model {
         $this->db->where('client_id', $client_id);
         return $this->db->update('client', $data);
     }
+    
+    //update online status
+    function update_online_status($client_model) {
+        $data = array('is_online' => $client_model->get_is_online());
+        $this->db->where('client_id', $client_model->get_client_id());
+        return $this->db->update('client', $data);
+    }
+    
+    function authenticate_user($client_model) {
+
+        $data = array('client_email' => $client_model->get_client_email() /* , 'Password'=>$employee_model->get_employee_password() */, 'client.del_ind' => '1');
+
+        $this->db->select('client.*');
+        $this->db->from('client');
+        $this->db->where($data);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
+    function authenticate_user_with_password($client_model) {
+
+        $data = array('client_email' => $client_model->get_client_email(), 'client_password' => $client_model->get_client_password(), 'client.del_ind' => '1');
+
+        $this->db->select('client.*');
+        $this->db->from('client');
+        $this->db->where($data);
+        $query = $this->db->get();
+        return $query->row();
+    }
+    
+    
 }
 
