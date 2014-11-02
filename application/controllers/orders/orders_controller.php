@@ -18,7 +18,7 @@ class Orders_controller extends CI_Controller {
         $data['heading'] = "Order";
         $data['orders'] = $orders_service->get_all_orders($this->session->userdata('order_id'));
 
-        $partials = array('content' => 'order/manage_order_view');
+        $partials = array('content' => 'orders/manage_order_view');
         $this->template->load('template/main_template', $partials, $data);
     }
     
